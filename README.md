@@ -14,16 +14,16 @@ Web 编辑器针对《暖雪》提供了深度整合的可视化面板：
 
 | 面板 | 可配置项 |
 |------|---------|
-| **通用状态** | 红魂、蓝魂、梦灰、时序之辉、通关次数 |
-| **魔法剑** | 剑名、等级、5 个词条插槽（条目 ID / 等级 / 数值 / 梦魇） |
-| **药水** | 4 个药水槽位（药水 ID / 等级 / 元素类型） |
-| **符石背包** | 分页查看全部符石（锁定状态、5 个修饰符键值） |
+| **通用状态** | 红魂、灵魂、残梦余烬、时间碎片、通关次数 |
+| **武器** | 武器ID、等级、5 个词条插槽（条目 ID / 等级 / 数值 / 梦魇） |
+| **圣物** | 4 个圣物槽位（圣物 ID / 等级 / 元素类型） |
+| **残响** | 分页查看全部残响（锁定状态、5 个修饰符键值） |
 | **树形浏览器** | 完整存档树形结构浏览，任意路径展开 |
 | **字段搜索** | 全局搜索存档中任意字段名或值 |
 
 ## 功能特性
 
-- **暖雪全参数编辑**: 红魂、蓝魂、梦灰、魔法剑、药水、符石一站式修改
+- **暖雪参数编辑**: 红魂、蓝魂、残梦余烬、武器、圣物、残响一站式修改
 - **通用 BinaryFormatter 解析**: 完整支持 Unity BinaryFormatter 序列化格式的读取与编辑
 - **CLI 模式**: 命令行查看、搜索、修改任意存档数据
 - **Web 可视化编辑器**: 基于 Flask 的图形界面，直观操作
@@ -82,7 +82,7 @@ python3 BF_save.py your_save.dat --web
 python3 BF_save.py your_save.dat --web --port 8080
 ```
 
-浏览器打开 `http://localhost:5000`，即可在可视化界面中修改灵魂、魔法剑、药水、符石等全部参数。
+浏览器打开 `http://localhost:5000`，即可在可视化界面中修改灵魂、武器、圣物、残响等全部参数。
 
 ### CLI 模式（通用 BinaryFormatter 存档）
 
@@ -115,17 +115,17 @@ python3 BF_save.py <save_file> --set --path "path > to > field" --value new_valu
 ### 修改示例
 
 ```bash
-# 红魂 999999
+# 灵魂 999999
 python3 BF_save.py save.dat --set souls 999999
 
-# 蓝魂 999999
+# 红魂 999999
 python3 BF_save.py save.dat --set redsouls 999999
 
-# 梦灰 999999
+# 残梦余烬 999999
 python3 BF_save.py save.dat --set dreamAsh 999999
 
-# 嵌套路径修改（魔法剑等级）
-python3 BF_save.py save.dat --set --path "magicSword > Level" --value 99
+# 嵌套路径修改（武器等级）
+python3 BF_save.py save.dat --set --path "magicSword > Level" --value 3
 ```
 
 ## API 接口
@@ -138,10 +138,10 @@ python3 BF_save.py save.dat --set --path "magicSword > Level" --value 99
 | `/api/set` | POST | 修改单个字段 `{"path":"...","value":...}` |
 | `/api/set_batch` | POST | 批量修改 `{"items":[{"path":"...","value":...}]}` |
 | `/api/reload` | POST | 重新加载存档数据 |
-| `/api/general_state` | GET | 获取通用状态（红魂/蓝魂/梦灰等） |
-| `/api/magic_sword_state` | GET | 获取魔法剑完整配置 |
-| `/api/potion_state` | GET | 获取 4 个药水槽位 |
-| `/api/rune_state` | GET | 分页获取符石背包 `?page=&per_page=` |
+| `/api/general_state` | GET | 获取通用状态（红魂/灵魂/残梦余烬等） |
+| `/api/magic_sword_state` | GET | 获取武器完整配置 |
+| `/api/potion_state` | GET | 获取 4 个圣物槽位 |
+| `/api/rune_state` | GET | 分页获取残响背包 `?page=&per_page=` |
 
 ## BinaryFormatter 支持
 
