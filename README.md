@@ -45,7 +45,7 @@ pip install flask
 ### 克隆项目
 
 ```bash
-git clone https://github.com/Cola/BF_save.git
+git clone https://github.com/Cola-Love/BF_save.git
 cd BF_save
 ```
 
