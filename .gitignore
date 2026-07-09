@@ -1,0 +1,41 @@
+# Python bytecode
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Virtual environments
+venv/
+.venv/
+env/
+ENV/
+
+# IDE / Editor
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Backup files
+*.bak
+
+# Distribution
+dist/
+build/
+*.egg-info/
+*.egg
+
+# Environment files
+.env
+.env.local
+
+# Logs
+*.log
+
+# Save files (don't commit actual game saves)
+*.dat
